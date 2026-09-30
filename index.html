@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedro José Aranda — QA & Game Design Portfolio</title>
+<meta name="description" content="Portfolio of Pedro José Aranda: junior QA tester and game designer. WARWORKS and The Integrator.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#F28C1B; --orange-dk:#B85B06; --ink:#1F1F1F; --muted:#5C5C5C;
+  --line:#E7E2DB; --soft:#FFF5EA; --paper:#FFFFFF; --bg:#FBF8F4;
+  --sev-crit:#B3261E; --sev-high:#C25E00; --sev-med:#7A6A00;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#F3EEE8; --muted:#B8B0A6; --line:#3A342E; --soft:#2A221A; --paper:#1E1A16; --bg:#16130F;
+    --orange-dk:#F5A04A; --sev-crit:#FF8A80; --sev-high:#FFB45C; --sev-med:#E6D36B;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Poppins",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px}
+a{color:var(--orange-dk)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:16px}
+nav .brand{font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap}
+nav .brand span{color:var(--orange)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:14px}
+nav ul a{text-decoration:none;color:var(--muted);font-weight:500}
+nav ul a:hover{color:var(--orange-dk)}
+@media (max-width:640px){nav ul{display:none}}
+
+/* hero */
+.hero{padding:64px 0 48px;display:grid;grid-template-columns:180px 1fr;gap:40px;align-items:center}
+.hero img{width:180px;height:180px;display:block}
+.hero h1{font-size:clamp(34px,6vw,54px);line-height:1.05;color:var(--orange);text-transform:uppercase;letter-spacing:.01em}
+.hero .role{font-size:20px;font-weight:500;margin:10px 0 14px}
+.hero .role em{font-style:normal;color:var(--orange)}
+.hero p{color:var(--muted);max-width:620px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:500;text-decoration:none;font-size:15px}
+.btn.primary{background:var(--orange);color:#fff}
+.btn.primary:hover{background:#DD7A0E}
+.btn.ghost{border:1.5px solid var(--orange);color:var(--orange-dk)}
+.langs{margin-top:16px;font-size:13px;color:var(--muted)}
+@media (max-width:640px){.hero{grid-template-columns:1fr;gap:20px;padding-top:40px}.hero img{width:130px;height:130px}}
+
+/* sections */
+section{padding:48px 0;border-top:1px solid var(--line)}
+h2{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-dk);margin-bottom:8px}
+.lead{font-size:26px;font-weight:700;line-height:1.25;margin-bottom:18px;max-width:760px}
+
+/* project */
+.project{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:28px}
+.project header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline}
+.project h3{font-size:30px;letter-spacing:.02em}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12px;font-weight:500;background:var(--soft);color:var(--orange-dk);border:1px solid color-mix(in srgb,var(--orange) 40%,transparent);border-radius:999px;padding:3px 10px}
+.pitch{font-size:18px;margin:10px 0 18px;max-width:760px}
+.role-line{font-size:14px;color:var(--muted);margin-bottom:20px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.gallery.phone{grid-template-columns:repeat(4,1fr)}
+.shot{border-radius:12px;overflow:hidden;background:var(--soft);border:1px dashed color-mix(in srgb,var(--orange) 55%,transparent);display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);font-size:12px;padding:10px}
+.gallery .shot{aspect-ratio:16/10}
+.gallery.phone .shot{aspect-ratio:9/16}
+.shot img,.shot video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.demo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:-6px 0 20px}
+.demo span{font-size:13px;color:var(--muted)}
+.shot.has-img{border:none;padding:0}
+@media (max-width:760px){.gallery,.gallery.phone{grid-template-columns:repeat(2,1fr)}}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.cols{grid-template-columns:1fr}}
+.cols h4{font-size:15px;margin-bottom:8px}
+.cols ul{padding-left:18px}
+.cols li{margin-bottom:8px;font-size:15px}
+.cols li::marker{color:var(--orange)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:6px 0 24px}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--soft);border-radius:12px;padding:14px}
+.stat b{display:block;font-size:26px;line-height:1.1;color:var(--orange-dk)}
+.stat span{font-size:13px;color:var(--muted)}
+.story{margin-top:20px;padding:18px 20px;border-left:4px solid var(--orange);background:var(--soft);border-radius:0 12px 12px 0}
+.story h4{font-size:15px;margin-bottom:6px}
+.story p{font-size:15px}
+
+/* bugs */
+.bugs{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+@media (max-width:860px){.bugs{grid-template-columns:1fr}}
+.bug{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px;font-size:14px}
+.bug .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.bug .id{font-family:ui-monospace,Consolas,monospace;font-size:12px;color:var(--muted)}
+.sev{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:6px;border:1.5px solid currentColor}
+.sev.crit{color:var(--sev-crit)} .sev.high{color:var(--sev-high)} .sev.med{color:var(--sev-med)}
+.bug h3{font-size:16px;line-height:1.35;margin-bottom:10px}
+.bug dl{display:grid;grid-template-columns:92px 1fr;gap:6px 12px}
+.bug dt{font-weight:700;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding-top:2px}
+.bug dd ol{padding-left:18px}
+
+/* how */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+@media (max-width:760px){.how{grid-template-columns:1fr}}
+.how div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px}
+.how h4{margin-bottom:6px;font-size:16px}
+.how p{font-size:14px;color:var(--muted)}
+
+footer{padding:40px 0 60px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+footer .btn{margin:0 6px 10px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Pedro José <span>Aranda</span></a>
+  <ul>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#bugs">Bug reports</a></li>
+    <li><a href="#how">How I work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header class="wrap hero" id="top">
+  <img src="avatar.png" alt="Illustrated portrait of Pedro José Aranda">
+  <div>
+    <h1>Pedro José Aranda</h1>
+    <div class="role">Junior QA Tester <em>·</em> Game Designer</div>
+    <p>I design games and I break them on purpose. Two projects in Godot, one of them in closed beta with testers, both tested with automated checks, reproducible bug hunts and data-driven balancing. By day I'm an industrial maintenance technician: I find faults step by step and write them down clearly.</p>
+    <div class="cta">
+      <a class="btn primary" href="cv.pdf">Download CV</a>
+      <a class="btn ghost" href="mailto:egoth9@gmail.com">egoth9@gmail.com</a>
+    </div>
+    <div class="langs">Spanish &amp; Catalan (native) · English (near-native) · Vilanova i la Geltrú, Barcelona</div>
+  </div>
+</header>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <p class="lead">Two games, designed from scratch, tested like they were shipping tomorrow.</p>
+
+  <!-- WARWORKS -->
+  <article class="project">
+    <header>
+      <h3>WARWORKS</h3>
+      <div class="meta"><span class="chip">Android</span><span class="chip">Idle + factory</span><span class="chip">F2P</span><span class="chip">Godot 4</span><span class="chip">Closed beta</span></div>
+    </header>
+    <p class="pitch">A factory licensed by the Ministry of Defence. They set the contracts; you lay the belts. A factory game with real production chains, in a bright low-poly toy style, played vertically with one thumb.</p>
+    <p class="role-line"><b>My role:</b> solo game designer, director and tester · implementation AI-assisted · trailer and screenshots rendered from the current build</p>
+
+    <div class="gallery phone">
+      <div class="shot has-img"><video poster="img/ww-motor.jpg" muted loop playsinline autoplay controls preload="metadata" aria-label="WARWORKS trailer rendered from the game"><source src="img/warworks-trailer.webm" type="video/webm"><source src="img/warworks-trailer.mp4" type="video/mp4"></video></div>
+      <div class="shot has-img"><img src="img/ww-poligono.jpg" alt="Industrial map with several factories joined by roads" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/ww-tren.jpg" alt="Factory with rail line for vehicles" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/ww-contrato.jpg" alt="Ministry contracts screen" loading="lazy"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>71</b><span>recipes from 8 raw materials to 10 end products</span></div>
+      <div class="stat"><b>12.6 h</b><span>measured minimum play time, from simulation</span></div>
+      <div class="stat"><b>16</b><span>automated checks before every build</span></div>
+      <div class="stat"><b>900+</b><span>texts verified in English inside the running game</span></div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Design</h4>
+        <ul>
+          <li>5 production branches and 11 licences, from mortars to fighter jets and missiles; vehicles travel by rail, parts by belt.</li>
+          <li>Multi-factory industrial map with player-built roads and trucks between factories.</li>
+          <li>The Ministry: 8 contracts, rush orders, daily orders, audits and operations that keep old production lines useful.</li>
+          <li>Prestige across 6 nations, each with its own rule; the last one gives half your land to the army.</li>
+          <li>The game tells you what's wrong: jammed belts light up red, a stopped machine names the part it's missing, and the production sheet points at the real bottleneck.</li>
+          <li>Fair F2P: no artificial waits, no paywalls, no forced ads; everything can be completed without paying.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>QA</h4>
+        <ul>
+          <li>Closed beta with testers: player reports are reproduced, fixed and covered by a new test.</li>
+          <li>Every new test is checked by breaking the code on purpose, to prove it actually catches the bug.</li>
+          <li>11 test batteries (simulation, grid, languages, values, throughput, play time, fuzzing…) plus 5 tests that tap the running game with synthetic touches.</li>
+          <li>Fuzzer: 30,000 random player actions per run, checking the game never breaks its own rules.</li>
+          <li>An accessibility round driven by tester feedback, rebuilding how doors and connections are explained.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story">
+      <h4>Balancing story: simulate the whole game, don't guess</h4>
+      <p>I built a simulation that plays the entire game with the real data tables: the player buys their bottleneck and waits when they can't afford it. The first run showed that contracts paid about 5× what the factory earned, that contract 2 paid worse than contract 1, and that contracts didn't progress while the game was closed. After rebalancing, contracts pay about 0.9× the factory and the measured minimum play time is 12.6 hours. The simulation reruns every time a number changes.</p>
+    </div>
+  </article>
+
+  <!-- THE INTEGRATOR -->
+  <article class="project">
+    <header>
+      <h3>THE INTEGRATOR</h3>
+      <div class="meta"><span class="chip">Android</span><span class="chip">Turn-based PvE extraction</span><span class="chip">First person, grid</span><span class="chip">Godot 4</span><span class="chip">In development</span></div>
+    </header>
+    <p class="pitch">You are Operator 07. Your salvage drones go down into a derelict hull full of machines still doing their jobs. The drones carry no weapons: you build them from the tech you bring back. The question is never "can I hit it?" but "do I have the charge to get back?"</p>
+    <p class="role-line"><b>My role:</b> solo game designer, director and tester · implementation AI-assisted · screenshots and video rendered from the current build (UI in Spanish)</p>
+    <div class="demo"><a class="btn primary" href="demo/index.html" target="_blank" rel="noopener">▶ Play the demo in your browser</a><span>Spanish UI · desktop: arrow keys to move, 1 · 2 · 3 for the three buttons, space to wait · phone: touch controls</span></div>
+
+    <div class="gallery phone">
+      <div class="shot has-img"><img src="img/ti-brazo.jpg" alt="Drone camera view with a tracking box on a mechanical arm enemy" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/ti-cascaron.jpg" alt="Supervisor on the radio while two enemies are tracked on camera; exits marked on the map" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/ti-altar.jpg" alt="Glowing power socket in the generator room" loading="lazy"></div>
+      <div class="shot has-img"><video poster="img/ti-cascaron.jpg" muted loop playsinline autoplay controls preload="metadata" aria-label="A full run of The Integrator: fighting three machines and extracting"><source src="img/integrator-run.webm" type="video/webm"><source src="img/integrator-run.mp4" type="video/mp4"></video></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>7</b><span>procedurally generated zones</span></div>
+      <div class="stat"><b>49</b><span>drone parts in 5 slots, 3 tiers each</span></div>
+      <div class="stat"><b>24</b><span>action verbs that rotate every turn</span></div>
+      <div class="stat"><b>73</b><span>automated tests run before every build, all green</span></div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Design</h4>
+        <ul>
+          <li>The turn is the currency: walking, hitting and searching all cost the same charge, so fighting is expensive and running away is legitimate.</li>
+          <li>Verbs rotate instead of being chosen. Enemies' cycles are visible too, so combat is about lining up your cycle with the gap in theirs.</li>
+          <li>Tier-2 and tier-3 parts need a component that only one specific enemy drops: no fighting, no upgrades.</li>
+          <li>Reward preparation, don't punish failure: the standard drone is always replaced for free; what you lose is what you bolted onto it.</li>
+          <li>The map tells the truth: exits are marked from turn 0, and anything that blocks the way is drawn as blocking.</li>
+          <li>Two bosses built as boards, not health bars: they don't move, but change the floor every turn and show the tiles they'll hit.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>QA</h4>
+        <ul>
+          <li>Every design claim becomes an assertion, checked by bots that play real runs.</li>
+          <li>A test that passes first time gets broken on purpose to prove it can fail.</li>
+          <li>Flaky tests are bugs: one read an enemy's rotation mid-animation and failed 6 times out of 19.</li>
+          <li>Touch targets measured against Android's 48 dp guideline: the map tabs went from 15 dp to 43 dp tall.</li>
+          <li>Audio checked for phone speakers: an ambience with 61% of its energy below 200 Hz was cut to 34%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story">
+      <h4>Balancing story: the enemy that hit every other turn</h4>
+      <p>The Shell had a two-step cycle, so it attacked every other turn: 2.00 damage per turn, double the Mule's, and it spawns in sleeping groups. Two of them next to you killed a full-health drone in three turns. I kept its 4-damage hit, because that's its identity, but added a second crawl before it: 1.33 damage per turn and two turns of warning, enough to see it coming and break contact.</p>
+    </div>
+  </article>
+</div></section>
+
+<section id="bugs"><div class="wrap">
+  <h2>Sample bug reports</h2>
+  <p class="lead">Real defects from my own projects, written the way I'd file them in a studio.</p>
+
+  <div class="bugs">
+    <article class="bug">
+      <div class="top"><span class="id">WW-077 · WARWORKS beta</span><span class="sev crit">Critical</span></div>
+      <h3>Removing an entry door deletes every belt in the factory</h3>
+      <dl>
+        <dt>Found by</dt><dd>A beta player, with two screenshots.</dd>
+        <dt>Steps</dt><dd><ol><li>Build a factory with belts, a splitter and machines.</li><li>Remove one of its entry doors.</li></ol></dd>
+        <dt>Expected</dt><dd>Only the door is removed.</dd>
+        <dt>Actual</dt><dd>Every belt, splitter and tunnel disappears; machines stay floating on an empty floor. Reproduced first time: 6 transport cells → 0.</dd>
+        <dt>Cause</dt><dd>Removing a door rebuilt the whole grid to renumber doors, and belts only exist in the grid.</dd>
+        <dt>Fix</dt><dd>Renumber only the door cells. Two new tests, both confirmed to fail with the old code.</dd>
+      </dl>
+    </article>
+
+    <article class="bug">
+      <div class="top"><span class="id">TI-022 · The Integrator</span><span class="sev crit">Critical</span></div>
+      <h3>Soft-lock: a dormant enemy can block the only path to the exit</h3>
+      <dl>
+        <dt>Found by</dt><dd>Metrics bot, 2 of 10 seeds.</dd>
+        <dt>Steps</dt><dd><ol><li>Generate a map with an affected seed.</li><li>Follow the only route towards the exit.</li></ol></dd>
+        <dt>Expected</dt><dd>Every generated map can be completed.</dd>
+        <dt>Actual</dt><dd>A dormant enemy blocks the corridor and cannot be attacked, so the run cannot be finished.</dd>
+        <dt>Fix</dt><dd>The map validator now treats dormant enemies as walls and removes any that block the route.</dd>
+      </dl>
+    </article>
+
+    <article class="bug">
+      <div class="top"><span class="id">TI-MAP · The Integrator</span><span class="sev high">High</span></div>
+      <h3>The map draws blocking furniture as walkable floor</h3>
+      <dl>
+        <dt>Found by</dt><dd>Map audit on a test seed.</dd>
+        <dt>Steps</dt><dd><ol><li>Explore a floor with cabinets or benches in the corridors.</li><li>Open the map on the drone's PDA.</li></ol></dd>
+        <dt>Expected</dt><dd>Anything that blocks movement is drawn hatched, as blocking.</dd>
+        <dt>Actual</dt><dd>15 pieces of furniture on one floor drawn as open floor: 32% of the explored area. In a 1-wide corridor that's a dead end the map calls a path.</dd>
+        <dt>Cause</dt><dd>Furniture lives in its own table, not in the map grid the PDA was reading.</dd>
+        <dt>Fix</dt><dd>The map now reads blocking from the same data the movement code uses.</dd>
+      </dl>
+    </article>
+
+    <article class="bug">
+      <div class="top"><span class="id">WW-088 · WARWORKS beta</span><span class="sev crit">Critical</span></div>
+      <h3>Store purchases are granted for free outside the editor</h3>
+      <dl>
+        <dt>Found by</dt><dd>A beta tester who ended up with 219,450 premium bonds without paying.</dd>
+        <dt>Steps</dt><dd><ol><li>Install a build without the store's billing plugin.</li><li>Buy any pack of bonds.</li></ol></dd>
+        <dt>Expected</dt><dd>The purchase fails honestly.</dd>
+        <dt>Actual</dt><dd>The pack is granted instantly; rewarded ads had the same hole.</dd>
+        <dt>Cause</dt><dd>A shortcut for testing the store in the editor was active in every build.</dd>
+        <dt>Fix</dt><dd>The shortcut only works in debug builds; a release-check test now guards it.</dd>
+      </dl>
+    </article>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <h2>How I work</h2>
+  <p class="lead">I design, I direct, I test. The code is AI-assisted, and I'm upfront about it.</p>
+  <div class="how">
+    <div><h4>Design first</h4><p>I decide the systems, the numbers and the rules, and I write down what each one is supposed to achieve so it can be checked.</p></div>
+    <div><h4>Nothing ships untested</h4><p>Every build passes automated tests before I play it on a real device. When a bug slips through, it gets a test so it can't come back.</p></div>
+    <div><h4>Data over hunches</h4><p>Bots play whole runs and report the numbers. If a design claim doesn't show up in the data, the design changes.</p></div>
+  </div>
+</div></section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p style="margin-bottom:16px">Looking for a QA role in a games studio, with an eye on game design.</p>
+    <a class="btn primary" href="mailto:egoth9@gmail.com">Email me</a>
+    <a class="btn ghost" href="cv.pdf">Download CV</a>
+    <p style="margin-top:14px">Vilanova i la Geltrú, Barcelona</p>
+  </div>
+</footer>
+
+</body>
+</html>
