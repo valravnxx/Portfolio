@@ -70,6 +70,9 @@ h2{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--oran
 .gallery .shot{aspect-ratio:16/10}
 .gallery.phone .shot{aspect-ratio:9/16}
 .shot img,.shot video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.wide-video{margin:0 0 16px}
+.wide-video video{width:100%;max-width:720px;display:block;border-radius:12px;background:#000;image-rendering:pixelated}
+.wide-video span{display:block;font-size:13px;color:var(--muted);margin-top:6px}
 .demo{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:-6px 0 20px}
 .demo span{font-size:13px;color:var(--muted)}
 .shot.has-img{border:none;padding:0}
@@ -130,7 +133,7 @@ footer .btn{margin:0 6px 10px}
   <div>
     <h1>Pedro José Aranda</h1>
     <div class="role">Junior QA Tester <em>·</em> Game Designer</div>
-    <p>I design games and I break them on purpose. Two projects in Godot, one of them in closed beta with testers, both tested with automated checks, reproducible bug hunts and data-driven balancing. By day I'm an industrial maintenance technician: I find faults step by step and write them down clearly.</p>
+    <p>I design games and I break them on purpose. Three projects in Godot, one of them in closed beta with testers, all tested with automated checks, reproducible bug hunts and data-driven balancing. By day I'm an industrial maintenance technician: I find faults step by step and write them down clearly.</p>
     <div class="cta">
       <a class="btn primary" href="cv.pdf">Download CV</a>
       <a class="btn ghost" href="mailto:egoth9@gmail.com">egoth9@gmail.com</a>
@@ -141,7 +144,7 @@ footer .btn{margin:0 6px 10px}
 
 <section id="projects"><div class="wrap">
   <h2>Projects</h2>
-  <p class="lead">Two games, designed from scratch, tested like they were shipping tomorrow.</p>
+  <p class="lead">Three games, designed from scratch, tested like they were shipping tomorrow.</p>
 
   <!-- WARWORKS -->
   <article class="project">
@@ -247,6 +250,60 @@ footer .btn{margin:0 6px 10px}
     <div class="story">
       <h4>Balancing story: the enemy that hit every other turn</h4>
       <p>The Shell had a two-step cycle, so it attacked every other turn: 2.00 damage per turn, double the Mule's, and it spawns in sleeping groups. Two of them next to you killed a full-health drone in three turns. I kept its 4-damage hit, because that's its identity, but added a second crawl before it: 1.33 damage per turn and two turns of warning, enough to see it coming and break contact.</p>
+    </div>
+  </article>
+
+  <!-- DRAGON FIGHTING LEAGUE -->
+  <article class="project">
+    <header>
+      <h3>DRAGON FIGHTING LEAGUE</h3>
+      <div class="meta"><span class="chip">Android</span><span class="chip">Sports sim · fake-money betting</span><span class="chip">Free + Premium</span><span class="chip">Godot 4</span><span class="chip">Release in preparation</span></div>
+    </header>
+    <p class="pitch">A league of procedurally generated dragons that fight twice a day in real time, and a betting app built around it, with play money only. Every phone computes the same league, so friends watch the same fight live. The Premium edition adds a ranch where you breed, train and enter your own dragons.</p>
+    <p class="role-line"><b>My role:</b> solo game designer, director and tester · implementation AI-assisted · screenshots and the fight clip rendered from the current build (v0.13.4)</p>
+
+    <div class="wide-video"><video poster="img/dfl-fight-poster.jpg" muted loop playsinline autoplay controls preload="metadata" aria-label="A full league fight, exported by the app's own GIF recorder"><source src="img/dfl-fight.webm" type="video/webm"><source src="img/dfl-fight.mp4" type="video/mp4"></video><span>A whole league fight, exported by the app's built-in GIF recorder</span></div>
+
+    <div class="gallery phone">
+      <div class="shot has-img"><img src="img/dfl-home.jpg" alt="Home screen with daily bonus, live fight and fight card with odds" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/dfl-live.jpg" alt="A live fight in the 3D coliseum with tale of the tape" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/dfl-nest.jpg" alt="The nest: designing a dragon egg in the Premium ranch" loading="lazy"></div>
+      <div class="shot has-img"><img src="img/dfl-ranch-flight.jpg" alt="A dragon training flight through hoops on the ranch" loading="lazy"></div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b>1</b><span>league for everyone: same fights, same results on every phone</span></div>
+      <div class="stat"><b>50</b><span>dragons in 3 age divisions that age, retire and get replaced</span></div>
+      <div class="stat"><b>5 years</b><span>of league simulated to test that it stays healthy</span></div>
+      <div class="stat"><b>3</b><span>languages: English, Spanish and Russian</span></div>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Design</h4>
+        <ul>
+          <li>Real-time schedule: a midday and a prime-time card every day, a title fight on Saturday nights, bets open until the bell.</li>
+          <li>Odds come only from fight history (rating plus an 8% house edge). They know nothing about bodies or elements, and that's where a player who reads the tale of the tape finds an edge.</li>
+          <li>A newsroom that writes its own headlines from what happened: upsets, title changes, streaks, debuts, retirements.</li>
+          <li>Premium ranch: design an egg, train each dragon at the hours its nature prefers, pick its opponents in a private league, and add friends' dragons by code.</li>
+          <li>Everything you can buy is cosmetic (arenas, themes, frames, titles): nothing helps you win bets.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>QA</h4>
+        <ul>
+          <li>Determinism as a requirement: live, replay and result are the same fight from the same seed, and shared fight codes reproduce it on a friend's phone.</li>
+          <li>A long-run simulation found the league emptying out (after one year: 7 seniors, no veterans, over half of card slots empty). After new rules, five simulated years: full divisions, 10 empty slots out of 15,122.</li>
+          <li>The newsroom's headlines are checked by tests against what actually happened.</li>
+          <li>Flight measured, not guessed: across the same 100 random fights, a flyer against a non-flyer won 41% with the old movement engine and 59% with the new one.</li>
+          <li>9 test suites green before this build, from the betting flow to names and editions.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="story">
+      <h4>Balancing story: a league that slowly died</h4>
+      <p>Retired dragons were only replaced by youngsters, who take months to reach senior. A one-year simulation showed 43 youths, 7 seniors and no veterans, with most fight slots empty. I changed the rules: each division refills to its size with signings of its age, newcomers enter at the average rating, and old cards are forgotten after 40 days. Five simulated years later the divisions stay full and nobody waits more than 14 days for a fight.</p>
     </div>
   </article>
 </div></section>
